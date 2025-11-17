@@ -30,4 +30,12 @@ class AuditLog extends Model
         'old_values' => 'array',
         'new_values' => 'array',
     ];
+
+    public function auditable(){
+        return $this->morphTo();
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class,'user_uuid');
+    }
 }
